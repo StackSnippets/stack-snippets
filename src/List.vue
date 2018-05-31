@@ -17,9 +17,6 @@ export default {
       title: 'Favorites'
     }
   },
-  mounted: function() {
-    console.log(this.data);
-  },
   props: [
     'data'
   ],

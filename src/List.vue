@@ -14,11 +14,12 @@ export default {
   name: 'list',
   data () {
     return {
-      title: 'Favorites'
+      
     }
   },
   props: [
-    'data'
+    'data',
+    'title'
   ],
   components: {
     'card': Card

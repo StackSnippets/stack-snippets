@@ -1,6 +1,6 @@
 <template>
   <main id="app">
-    <list :data="base" :base="true"></list>
+    <list :data="base" :base="true" :title="'Base Template'"></list>
   </main>
 </template>
 

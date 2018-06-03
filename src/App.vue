@@ -1,12 +1,13 @@
 <template>
   <main id="app">
-    <list :data="base" :base="true" :title="'Base Template'"></list>
+    <list :data="base" :base="true" :title="'Base Templates'"></list>
+    <list :data="templates" :base="true" :title="'Community Templates'"></list>
   </main>
 </template>
 
 <script>
 import List from './List.vue';
-import { API_URL } from './constants';
+import axios from './constants';
 
 export default {
   name: 'app',
@@ -23,8 +24,15 @@ export default {
             "code": "code2",
             "description": "add something else",
         },
-      ]
+      ],
+      templates: []
     }
+  },
+  mounted() {
+    axios.get('templates').then((response)=>{
+      this.templates = response.data.result;
+      console.log(response.data.result);
+    });
   },
   components: {
     'list': List

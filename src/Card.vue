@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import axios from './constants';
+
 export default {
   name: 'card',
   props: {
@@ -40,6 +42,10 @@ export default {
   },
   methods: {
     toggleFavorite: function() {
+      const count = this.data.favorite ? 1 : -1;
+      axios.post(`templates/${this.data._id}/favorite`, {
+        number: count
+      });
       this.data.favorite = !this.data.favorite;
     }
   }

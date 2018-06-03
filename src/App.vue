@@ -2,7 +2,7 @@
   <main id="app">
     <list :data="base" :base="true" :title="'Base Templates'"></list>
     <list :data="favorites" :title="'Favorited Templates'"></list>
-    <list :data="templates" :title="'Community Templates'"></list>
+    <list :data="templates" :title="'Community Templates'" v-on:favorite="favorite"></list>
   </main>
 </template>
 
@@ -43,6 +43,12 @@ export default {
   },
   components: {
     list: List
+  },
+  methods: {
+    favorite(template, flag) {
+      const item = this.templates.find((templ)=>templ._id===template._id);
+      this.favorites.unshift(item);
+    }
   }
 };
 </script>

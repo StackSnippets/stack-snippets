@@ -2,7 +2,7 @@
   <section class="card-container">
     <h2 class="title">{{ title }}</h2>
     <div v-for="template in data" v-bind:key="template._id">
-      <card :data="template" :faved="base"></card>
+      <card :data="template" :faved="base" v-on:favorite="favorite"></card>
     </div>
     <div v-if="data.length===0" class="list-empty-error">
       No templates to display. Show some love.
@@ -37,6 +37,11 @@ export default {
   components: {
     'card': Card
   },
+  methods: {
+    favorite(template, flag) {
+      this.$emit('favorite', template, flag);
+    }
+  }
 }
 </script>
 

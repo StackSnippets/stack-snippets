@@ -47,6 +47,7 @@ export default {
         number: count
       });
       this.data.favorite = !this.data.favorite;
+      this.$emit('favorite', this.data, this.data.favorite);
     }
   }
 };

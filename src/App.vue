@@ -28,10 +28,9 @@ export default {
       templates: []
     }
   },
-  mounted() {
+  created() {
     axios.get('templates').then((response)=>{
       this.templates = response.data.result;
-      console.log(response.data.result);
     });
   },
   components: {

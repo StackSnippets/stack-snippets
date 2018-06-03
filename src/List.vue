@@ -17,10 +17,20 @@ export default {
       
     }
   },
-  props: [
-    'data',
-    'title'
-  ],
+  props: {
+    data: {
+      type: Array,
+      default: []
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    base: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     'card': Card
   }

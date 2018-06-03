@@ -1,7 +1,7 @@
 <template>
   <main id="app">
     <list :data="base" :base="true" :title="'Base Templates'"></list>
-    <list :data="templates" :base="true" :title="'Community Templates'"></list>
+    <list :data="templates" :title="'Community Templates'"></list>
   </main>
 </template>
 

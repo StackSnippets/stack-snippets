@@ -2,7 +2,7 @@
   <section class="card-container">
     <h2 class="title">{{ title }}</h2>
     <div v-for="template in data" v-bind:key="template.name">
-      <card :data="template"></card>
+      <card :data="template" :faved="base"></card>
     </div>
   </section>
 </template>
@@ -33,7 +33,7 @@ export default {
   },
   components: {
     'card': Card
-  }
+  },
 }
 </script>
 

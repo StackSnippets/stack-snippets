@@ -1,7 +1,7 @@
 <template>
   <main id="app">
     <list :data="base" :base="true" :title="'Base Templates'"></list>
-    <list :data="favorites" :title="'Favorited Templates'"></list>
+    <list :data="favorites" :title="'Favorited Templates'" v-on:favorite="favorite"></list>
     <list :data="templates" :title="'Community Templates'" v-on:favorite="favorite"></list>
   </main>
 </template>
@@ -46,8 +46,13 @@ export default {
   },
   methods: {
     favorite(template, flag) {
-      const item = this.templates.find((templ)=>templ._id===template._id);
-      this.favorites.unshift(item);
+      if(flag) {
+        const item = this.templates.find((templ)=>templ._id===template._id);
+        this.favorites.unshift(item);
+      } else {
+        const index = this.favorites.findIndex((templ)=>template._id===templ._id);
+        this.favorites.splice(index, 1);
+      }
     }
   }
 };

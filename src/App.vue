@@ -1,42 +1,50 @@
 <template>
   <main id="app">
     <list :data="base" :base="true" :title="'Base Templates'"></list>
+    <list :data="favorites" :title="'Favorited Templates'"></list>
     <list :data="templates" :title="'Community Templates'"></list>
   </main>
 </template>
 
 <script>
-import List from './List.vue';
-import axios from './constants';
+import List from "./List.vue";
+import axios from "./constants";
 
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
       base: [
         {
-            "name": "wierd1",
-            "code": "code1",
-            "description": "add something",
+          _id: 1,
+          name: "wierd1",
+          code: "code1",
+          description: "add something"
         },
         {
-            "name": "wierd2",
-            "code": "code2",
-            "description": "add something else",
-        },
+          _id: 2,
+          name: "wierd2",
+          code: "code2",
+          description: "add something else"
+        }
       ],
+      favorites: [],
       templates: []
-    }
+    };
   },
   created() {
-    axios.get('templates').then((response)=>{
-      this.templates = response.data.result;
+    axios.get("templates").then(response => {
+      const templates = response.data.result;
+      this.templates = templates.map(template=> {
+        template.favorite = false
+        return template;
+      });
     });
   },
   components: {
-    'list': List
+    list: List
   }
-}
+};
 </script>
 
 <style>
@@ -46,7 +54,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
@@ -68,5 +76,4 @@ body {
   fill: rgba(255, 255, 255, 1);
   transform: scale(1.1);
 }
-
 </style>

@@ -1,8 +1,11 @@
 <template>
   <section class="card-container">
     <h2 class="title">{{ title }}</h2>
-    <div v-for="template in data" v-bind:key="template.name">
+    <div v-for="template in data" v-bind:key="template._id">
       <card :data="template" :faved="base"></card>
+    </div>
+    <div v-if="data.length===0" class="list-empty-error">
+      No templates to display. Show some love.
     </div>
   </section>
 </template>
@@ -54,6 +57,11 @@ export default {
   font-size: small;
   margin-left: 1rem;
   color: #BDBDBD;
+}
+
+.list-empty-error {
+  color: #BDBDBD;
+  text-align: center;
 }
 </style>
 

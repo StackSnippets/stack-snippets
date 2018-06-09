@@ -62,6 +62,7 @@ export default {
 body {
   margin: 0;
   background-color: #000000;
+  min-width: 400px;
 }
 
 #app {

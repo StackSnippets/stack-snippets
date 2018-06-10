@@ -50,11 +50,12 @@ export default {
       this.$emit("favorite", this.data, this.data.favorite);
     },
     injectData: function() {
-      chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=> {
+      const code = this.data.code;
+      chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         chrome.tabs.executeScript(
           tabs[0].id,
           {
-            code: `var code = '${this.data.code}';`
+            code: `var code = '${code}';`
           },
           function() {
             chrome.tabs.executeScript(tabs[0].id, {

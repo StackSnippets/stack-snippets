@@ -1,4 +1,4 @@
-# stack-snippets
+# Stack-Snippets
 
 > Ability to insert premade templates into stackoverflow snippets
 

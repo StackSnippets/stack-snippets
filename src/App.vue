@@ -9,6 +9,7 @@
 <script>
 import List from "./List.vue";
 import axios from "./constants";
+import { templates } from './constants';
 
 export default {
   name: "app",
@@ -18,13 +19,13 @@ export default {
         {
           _id: 1,
           name: "React Base Template",
-          code: "Base Template for React",
+          code: templates['baseReact'],
           description: "Basic Template for ReactJS Questions"
         },
         {
           _id: 2,
           name: "Vue Base Template",
-          code: "Basic Template for Vue",
+          code: templates['baseVue'],
           description: "Basic Template for VueJS Questions"
         }
       ],

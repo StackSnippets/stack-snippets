@@ -50,7 +50,7 @@ export default {
       this.$emit("favorite", this.data, this.data.favorite);
     },
     injectData: function() {
-      chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=> {
         chrome.tabs.executeScript(
           tabs[0].id,
           {

@@ -19,13 +19,13 @@ export default {
           _id: 1,
           name: "React Base Template",
           code: "Base Template for React",
-          description: "Basic Template for VueJS Questions"
+          description: "Basic Template for ReactJS Questions"
         },
         {
           _id: 2,
           name: "Vue Base Template",
           code: "Basic Template for Vue",
-          description: "Basic Template for Vue"
+          description: "Basic Template for VueJS Questions"
         }
       ],
       favorites: [],

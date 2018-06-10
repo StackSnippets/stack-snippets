@@ -17,15 +17,15 @@ export default {
       base: [
         {
           _id: 1,
-          name: "wierd1",
-          code: "code1",
-          description: "add something"
+          name: "React Base Template",
+          code: "Base Template for React",
+          description: "Basic Template for VueJS Questions"
         },
         {
           _id: 2,
-          name: "wierd2",
-          code: "code2",
-          description: "add something else"
+          name: "Vue Base Template",
+          code: "Basic Template for Vue",
+          description: "Basic Template for Vue"
         }
       ],
       favorites: [],

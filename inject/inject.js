@@ -51,7 +51,7 @@ templates = {
 };
 
 (function() {
-  const template = templates[contentId];
+  const template = code;
   const answerInputNode = document.getElementById('wmd-input');
   answerInputNode.value += template;
   answerInputNode.click();

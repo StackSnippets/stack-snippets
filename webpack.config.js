@@ -79,7 +79,8 @@ if (process.env.NODE_ENV === 'production') {
       'manifest.json',
       'icons/**',
       'bg/**',
-      '_locales/**'
+      '_locales/**',
+      'inject/**'
     ]),
     new htmlWebpackPlugin({
       template: './index.html'

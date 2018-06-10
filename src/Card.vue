@@ -1,5 +1,5 @@
 <template>
-  <li class="card">
+  <li class="card" v-on:click="injectData">
     <div class="text">
       <h3 class="title">{{ data.name }}</h3>
       <p class="subtitle">{{ data.description }}</p>
@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import axios from './constants';
+import axios from "./constants";
 
 export default {
-  name: 'card',
+  name: "card",
   props: {
     data: {
       type: Object,
@@ -29,15 +29,15 @@ export default {
   },
   data() {
     return {
-      title: 'Card Title',
-      subtitle: 'Subtitle'
-    }
+      title: "Card Title",
+      subtitle: "Subtitle"
+    };
   },
   computed: {
     activeHeart: function() {
       return {
         red: this.data.favorite
-      }
+      };
     }
   },
   methods: {
@@ -47,7 +47,22 @@ export default {
         number: count
       });
       this.data.favorite = !this.data.favorite;
-      this.$emit('favorite', this.data, this.data.favorite);
+      this.$emit("favorite", this.data, this.data.favorite);
+    },
+    injectData: function() {
+      chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        chrome.tabs.executeScript(
+          tabs[0].id,
+          {
+            code: `var code = '${this.data.code}';`
+          },
+          function() {
+            chrome.tabs.executeScript(tabs[0].id, {
+              file: "inject/inject.js"
+            });
+          }
+        );
+      });
     }
   }
 };
@@ -56,7 +71,7 @@ export default {
 
 <style scoped>
 .card {
-  background-color: rgba(20,20,40,0.8);
+  background-color: rgba(20, 20, 40, 0.8);
   padding: 8px 12px;
   margin: 1rem 0;
   display: flex;
@@ -67,7 +82,7 @@ export default {
 }
 
 .card:hover {
-  background-color: rgba(20,20,50,0.9);
+  background-color: rgba(20, 20, 50, 0.9);
   transform: translateY(-2%);
 }
 

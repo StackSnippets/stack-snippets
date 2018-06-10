@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 export const templates = {
-  baseReact: `<!-- begin snippet: js hide: false console: true babel: true -->
+  baseReact: encodeURI(`<!-- begin snippet: js hide: false console: true babel: true -->
 
 <!-- language: lang-js -->
 
@@ -29,8 +29,8 @@ export const templates = {
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <div id="root"></div>
 
-<!-- end snippet -->`,
-  baseVue: `<!-- begin snippet: js hide: false console: true babel: true -->
+<!-- end snippet -->`),
+  baseVue: encodeURIComponent(`<!-- begin snippet: js hide: false console: true babel: true -->
 
 <!-- language: lang-js -->
 
@@ -55,7 +55,7 @@ export const templates = {
       {{message}}
     </div>
 
-<!-- end snippet -->`
+<!-- end snippet -->`)
 }
 
 export default instance;

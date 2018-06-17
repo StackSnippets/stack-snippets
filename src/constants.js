@@ -30,19 +30,19 @@ export const templates = {
     <div id="root"></div>
 
 <!-- end snippet -->`),
-  baseVue: encodeURIComponent(`<!-- begin snippet: js hide: false console: true babel: true -->
+  baseVue: encodeURI(`<!-- begin snippet: js hide: false console: true babel: true -->
 
 <!-- language: lang-js -->
 
     const app = new Vue({
-      el: '#app',
+      el: "#app",
       data: function() {
         return {
           message: "Vue"
         }
       },
       created: function () {
-        console.log('created');
+        console.log("created");
       },
       methods: {
       }
@@ -55,7 +55,7 @@ export const templates = {
       {{message}}
     </div>
 
-<!-- end snippet -->`)
+<!-- end snippet -->`),
 }
 
 export default instance;
